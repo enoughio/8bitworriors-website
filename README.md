@@ -8,11 +8,11 @@ Resource Library: Collection of relevant articles, tutorials, and projects for c
 Member Directory: Directory of club members, including profiles and contact information
 Blog: Platform for club members to share their experiences, projects, and insights
 Technologies Used
-Frontend: [HTML, CSS, JavaScript] (with [Framework/Library])
+Frontend: [HTML, CSS, JavaScript] (core tech)
 
 Getting Started
 
-Clone the repository: git clone https://github.com/[Your-Username]/8bitWorriors-Website.git
+Clone the repository: git clone https://github.com/enoughio/8bitWorriors-Website.git
 Install dependencies: npm install or yarn install
 Start the development server: npm start or yarn start
 Open the website in your browser: http://localhost:3000
