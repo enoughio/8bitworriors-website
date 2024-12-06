@@ -1,0 +1,195 @@
+1
+00:00:00,420 --> 00:00:06,190
+Before we say users in the database we need to do a couple of takes such as validation.
+
+2
+00:00:06,240 --> 00:00:10,910
+We need to make sure that name email and password fields are required.
+
+3
+00:00:11,010 --> 00:00:16,800
+E-mail should be type of email password should be at least six characters long and things like that.
+
+4
+00:00:17,160 --> 00:00:18,540
+So that is validation.
+
+5
+00:00:18,540 --> 00:00:22,300
+Next we need to has the password before we send in the database.
+
+6
+00:00:22,770 --> 00:00:29,940
+And then third we need to make sure that user with the same email does not already exist in the database.
+
+7
+00:00:29,940 --> 00:00:35,040
+So we need to make some checks before we are able to send a user in the database.
+
+8
+00:00:35,040 --> 00:00:44,870
+So the first thing we need to do is install some NBN packages and then install express validate or young
+
+9
+00:00:44,880 --> 00:00:53,580
+to use X was validated for validation and then we need decent web token to generate decent web tokens
+
+10
+00:00:53,580 --> 00:00:58,470
+so that we can send that to our client whether it's postman or react.
+
+11
+00:00:58,470 --> 00:01:07,820
+And that will allow us to implement authentication and get and then express did WD Tea Baggers as well.
+
+12
+00:01:07,890 --> 00:01:12,660
+So this will take if the generated token is still valid or not.
+
+13
+00:01:12,660 --> 00:01:18,300
+And we are also going to use a package called Formidable.
+
+14
+00:01:18,660 --> 00:01:24,630
+This will allow us to receive farm data because we will be sending farm data from the client side to
+
+15
+00:01:24,630 --> 00:01:25,650
+the service side.
+
+16
+00:01:25,650 --> 00:01:32,580
+So that is different than a decent data type that is a phone data type so to Hammond that we need.
+
+17
+00:01:32,580 --> 00:01:34,200
+This bag is formidable.
+
+18
+00:01:34,200 --> 00:01:36,240
+We need Lord less as well.
+
+19
+00:01:36,240 --> 00:01:42,690
+So we're going to use shoe helper methods from Lotus library and we need a few more packages for saving
+
+20
+00:01:42,690 --> 00:01:44,340
+our blog in the database.
+
+21
+00:01:44,340 --> 00:01:53,630
+So let's install them Azra slug Fi and string death strip Das has to email.
+
+22
+00:01:53,910 --> 00:01:58,010
+Okay so this package packages will be used to create a new blog.
+
+23
+00:01:58,120 --> 00:01:59,010
+Let me hit enter.
+
+24
+00:01:59,340 --> 00:02:02,940
+So while it's happening let me show you why we need sluggish flight.
+
+25
+00:02:03,330 --> 00:02:08,150
+So if you go to visit any base because our biggest one will be ACL.
+
+26
+00:02:08,310 --> 00:02:11,330
+So let's say let's go to current dot com.
+
+27
+00:02:11,520 --> 00:02:13,200
+Just to give it a try.
+
+28
+00:02:13,560 --> 00:02:16,600
+So for example you can see this is the blog title right.
+
+29
+00:02:16,610 --> 00:02:21,080
+So if you click here you see we have the domain names.
+
+30
+00:02:21,090 --> 00:02:29,040
+Less articles SLAs the blog title and it is all lowercase and it has the deaths.
+
+31
+00:02:29,070 --> 00:02:34,910
+Whenever there is space has been replaced with death and all of them have been logged kiss again.
+
+32
+00:02:34,990 --> 00:02:36,620
+So this is his slug.
+
+33
+00:02:37,020 --> 00:02:44,400
+So we need to generate slow for each blog post we said in the database and then we will query the database
+
+34
+00:02:44,580 --> 00:02:50,820
+based on the slope we are going to use 80 in most of the time you see something like this when most
+
+35
+00:02:50,820 --> 00:02:57,780
+of the tutorials you see articles less idea and we find the blogs based on the 80 but that would not
+
+36
+00:02:57,780 --> 00:03:02,490
+be issue and this is not a good user experience as well.
+
+37
+00:03:03,130 --> 00:03:09,930
+Okay so we're going to generate such slugs and for that reason we had this beggars in stone slug slump
+
+38
+00:03:10,320 --> 00:03:13,070
+and then we have this string strip estimate.
+
+39
+00:03:13,110 --> 00:03:19,740
+So what did we do is when you create a new blog for example this is the starting few lines of your blog.
+
+40
+00:03:20,040 --> 00:03:27,660
+So these few lines the first few lines we can take them to generate a meta description again that is
+
+41
+00:03:27,660 --> 00:03:30,140
+extremely important for issue.
+
+42
+00:03:30,240 --> 00:03:34,350
+So if you go to view page source you see this base has this title.
+
+43
+00:03:34,650 --> 00:03:40,070
+So the domain name and then the blog title he initiated the title.
+
+44
+00:03:40,230 --> 00:03:46,200
+You can see met a description I guess that this has Tim in and you see in this journey you learn to
+
+45
+00:03:46,260 --> 00:03:48,660
+properly set up next this front end and so on.
+
+46
+00:03:49,200 --> 00:03:57,660
+So these first few 160 characters have been extracted from the blog body automatically saved in the
+
+47
+00:03:57,660 --> 00:04:05,190
+database as a meta description that way when you render your blog they will have met a description as
+
+48
+00:04:05,190 --> 00:04:05,370
+well.
+
+49
+00:04:05,410 --> 00:04:08,730
+So very well ready for search engine optimization.

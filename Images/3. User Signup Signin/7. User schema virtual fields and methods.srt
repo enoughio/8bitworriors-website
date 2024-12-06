@@ -1,0 +1,435 @@
+1
+00:00:00,240 --> 00:00:05,280
+So to sign up user frosting we had to do was valid isn't and we did that in the last setting.
+
+2
+00:00:05,310 --> 00:00:10,880
+Now in this section we're going to implement the passwords to hassling of the password.
+
+3
+00:00:11,440 --> 00:00:11,870
+Okay.
+
+4
+00:00:12,090 --> 00:00:13,260
+So let's begin.
+
+5
+00:00:13,260 --> 00:00:15,350
+That's good to our models.
+
+6
+00:00:15,390 --> 00:00:19,330
+We're going to write this in our user model.
+
+7
+00:00:19,620 --> 00:00:23,800
+So on this schema for example in our case we have the user schema.
+
+8
+00:00:23,850 --> 00:00:31,560
+So in this user schema we can add methods and we can even use something called a virtual field.
+
+9
+00:00:31,880 --> 00:00:32,120
+Okay.
+
+10
+00:00:32,130 --> 00:00:39,690
+So what is virtual is that for example we want to get password from the client side however we want
+
+11
+00:00:39,690 --> 00:00:42,360
+to save the has to password.
+
+12
+00:00:42,360 --> 00:00:46,470
+We don't want to say anything as password in the database.
+
+13
+00:00:46,460 --> 00:00:54,250
+I get so virtual fields just exist that it doesn't get persisted in the database but in exist there.
+
+14
+00:00:54,360 --> 00:00:56,700
+So that we can do some work.
+
+15
+00:00:56,700 --> 00:01:03,510
+So in our case we get to grab the password from the client and has that blend password and saving the
+
+16
+00:01:03,510 --> 00:01:05,810
+database as has the password.
+
+17
+00:01:06,110 --> 00:01:06,660
+Okay.
+
+18
+00:01:06,960 --> 00:01:12,370
+So here you just Kim and Dot virtual here.
+
+19
+00:01:12,630 --> 00:01:17,830
+The virtual field is going to be password like.
+
+20
+00:01:17,970 --> 00:01:21,850
+And then here let me bring it down just a bit.
+
+21
+00:01:21,990 --> 00:01:29,250
+So the virtual field password we're going to use two methods set and get again.
+
+22
+00:01:29,580 --> 00:01:36,330
+So we're going to set we're going to use a function and make sure you use the regular function not the
+
+23
+00:01:36,330 --> 00:01:40,890
+error function again because error phones don't have their own scope for this cure.
+
+24
+00:01:40,980 --> 00:01:42,330
+So that will not work.
+
+25
+00:01:42,420 --> 00:01:48,540
+So make sure you use the regular function so function password
+
+26
+00:01:52,510 --> 00:02:05,100
+and we going to sort of create a temporary variable called the school password.
+
+27
+00:02:06,180 --> 00:02:11,370
+Then what are we going to do is we're going to generate a generate salt.
+
+28
+00:02:11,490 --> 00:02:14,360
+It'll be used for a hashing algorithm.
+
+29
+00:02:14,920 --> 00:02:21,730
+So once you do that we will need to encrypt password again.
+
+30
+00:02:22,120 --> 00:02:24,720
+So first let's do here.
+
+31
+00:02:24,910 --> 00:02:39,640
+This dot underscore password equals to password this salt equals to this dot makes salt.
+
+32
+00:02:39,970 --> 00:02:45,740
+So we don't have this method yet we're going to create soon that will generate the salt again.
+
+33
+00:02:45,760 --> 00:02:51,730
+So we need to create this method makes salt encrypt the password.
+
+34
+00:02:51,730 --> 00:02:58,710
+We're going to take this test password and we're going to populate its value with the highest version.
+
+35
+00:02:58,810 --> 00:03:04,360
+And I guess this dirt encrypt password we're going to create this method as well.
+
+36
+00:03:06,230 --> 00:03:13,160
+And we're going to pass the plain password and this will has the password and save that value in the
+
+37
+00:03:13,460 --> 00:03:14,390
+hash password.
+
+38
+00:03:14,990 --> 00:03:17,920
+And this is what's going to be saved in the database.
+
+39
+00:03:18,230 --> 00:03:19,820
+So this is how we're going to set.
+
+40
+00:03:20,180 --> 00:03:24,280
+And then we have this gift until we need it from some.
+
+41
+00:03:25,310 --> 00:03:37,240
+And this will return this dirt underscore password so we need to create these two methods mix salt and
+
+42
+00:03:37,300 --> 00:03:38,890
+encrypt password.
+
+43
+00:03:39,100 --> 00:03:46,260
+So on this user schema we can create methods and add to it.
+
+44
+00:03:46,300 --> 00:03:52,870
+Using this in the schema dot method methods equals two we create an object.
+
+45
+00:03:52,870 --> 00:03:58,780
+And here we're going to create these functions and we need to separate them with the common.
+
+46
+00:03:59,030 --> 00:04:03,690
+So first one let's call it encrypt password.
+
+47
+00:04:03,760 --> 00:04:12,150
+That's the one we need to make sure to use the regular function is a function password.
+
+48
+00:04:12,490 --> 00:04:19,060
+First of all we're going to take if we're not getting any password from the client then we want to just
+
+49
+00:04:19,120 --> 00:04:22,720
+we can't do anything we just written empty string.
+
+50
+00:04:22,720 --> 00:04:23,050
+I get.
+
+51
+00:04:23,110 --> 00:04:29,980
+And then we try and then we get any air.
+
+52
+00:04:32,790 --> 00:04:35,660
+If there is an error we just reach an empty street.
+
+53
+00:04:35,730 --> 00:04:41,520
+So what do you want to do is we want to try to have the password to plain password.
+
+54
+00:04:41,740 --> 00:04:47,150
+So we're going to use the script book that comes with an A.D. by default.
+
+55
+00:04:47,220 --> 00:04:51,740
+So return crypto.
+
+56
+00:04:51,990 --> 00:04:55,740
+And we have a couple of methods available with this with this module.
+
+57
+00:04:55,770 --> 00:05:01,390
+So crypto dart create Tate's Mac.
+
+58
+00:05:01,590 --> 00:05:04,230
+Now all this is also in the north.
+
+59
+00:05:04,230 --> 00:05:10,820
+This official website so you can also go there if you're interested in this crypto module.
+
+60
+00:05:11,310 --> 00:05:16,080
+But I'm just going to type it down here and you can also grab this quote from the source code.
+
+61
+00:05:16,200 --> 00:05:18,960
+If you find it a bit difficult to type.
+
+62
+00:05:19,230 --> 00:05:22,800
+So the housing algorithm we're going to use is assets a what.
+
+63
+00:05:23,190 --> 00:05:29,370
+So that's the first argument and the sec second argument is going to be this dot salt.
+
+64
+00:05:29,370 --> 00:05:42,500
+Then we get another method of date and update the password and then digest takes.
+
+65
+00:05:43,590 --> 00:05:46,060
+So this is encrypt password method.
+
+66
+00:05:46,080 --> 00:05:48,820
+Now we need another method called make salt.
+
+67
+00:05:48,900 --> 00:05:50,020
+So right here.
+
+68
+00:05:50,100 --> 00:05:51,370
+Make sure you have comma.
+
+69
+00:05:51,630 --> 00:05:53,490
+And then let's create this method as well.
+
+70
+00:05:53,490 --> 00:06:06,800
+Make salt from some and we going to return math dot around going to use new date
+
+71
+00:06:10,190 --> 00:06:12,150
+value of.
+
+72
+00:06:13,060 --> 00:06:24,280
+Multiply by math dot random plus trip.
+
+73
+00:06:24,690 --> 00:06:32,060
+So this will give us some random numerical value that we can use here when we have seen the password.
+
+74
+00:06:32,090 --> 00:06:35,660
+So we have got two methods here into password and make salt.
+
+75
+00:06:35,660 --> 00:06:39,830
+We also need one more method during the user sign in process.
+
+76
+00:06:39,860 --> 00:06:44,330
+So while we're here let's write that down so that we don't have to come back again again.
+
+77
+00:06:44,630 --> 00:06:48,340
+So that is going to be authenticate.
+
+78
+00:06:49,670 --> 00:06:54,260
+So we're going to use this method to authenticate the user.
+
+79
+00:06:54,590 --> 00:06:57,710
+So basically what are you going to do is we're going to compare the password.
+
+80
+00:06:57,860 --> 00:07:04,880
+So when we get the plain password from the client we're going to take that and encrypt that plain password
+
+81
+00:07:04,910 --> 00:07:09,620
+and compare with the hash to version of it which we have in the database.
+
+82
+00:07:09,620 --> 00:07:15,330
+And if they've met that means we can't authenticate that user because their password mats.
+
+83
+00:07:15,410 --> 00:07:15,650
+Right.
+
+84
+00:07:15,950 --> 00:07:18,710
+So this should be used during the user signing.
+
+85
+00:07:19,040 --> 00:07:21,290
+So this is also going to be a function
+
+86
+00:07:23,990 --> 00:07:26,330
+plain text or plain password.
+
+87
+00:07:26,330 --> 00:07:28,750
+We're going to get from the user.
+
+88
+00:07:29,190 --> 00:07:29,610
+OK.
+
+89
+00:07:29,900 --> 00:07:32,600
+Let's not forget to add a comma here.
+
+90
+00:07:32,630 --> 00:07:33,860
+All right.
+
+91
+00:07:34,100 --> 00:07:35,730
+So we're going to return.
+
+92
+00:07:35,730 --> 00:07:40,830
+It's going to return the value that is going to be the true or false I guess.
+
+93
+00:07:40,880 --> 00:07:45,120
+This encrypt password plaintext.
+
+94
+00:07:45,130 --> 00:07:50,070
+So we're going to has this password that is coming from the client type.
+
+95
+00:07:50,240 --> 00:07:54,460
+And we're going to compare using this tool equal operator.
+
+96
+00:07:54,560 --> 00:07:59,030
+This dot has a password.
+
+97
+00:07:59,300 --> 00:08:02,330
+So when we compare we will get either true or false.
+
+98
+00:08:02,350 --> 00:08:05,670
+So if it is true then the user will be authenticated.
+
+99
+00:08:05,690 --> 00:08:08,250
+Otherwise they will not be authenticated.
+
+100
+00:08:08,270 --> 00:08:09,410
+So this is it.
+
+101
+00:08:09,410 --> 00:08:10,700
+So we have a schema.
+
+102
+00:08:10,700 --> 00:08:16,590
+We have the virtual field to handle the password and save as has the password.
+
+103
+00:08:17,000 --> 00:08:20,870
+And then we have these few methods in the year just Kim.
+
+104
+00:08:20,870 --> 00:08:24,110
+One is to authenticate to compare the password.
+
+105
+00:08:24,110 --> 00:08:26,010
+Another is to has the password.
+
+106
+00:08:26,090 --> 00:08:28,700
+And another is to generate soft again.
+
+107
+00:08:28,850 --> 00:08:31,560
+So with all this we've pretty much done with the user schema.
+
+108
+00:08:31,580 --> 00:08:37,610
+Now we can go ahead in the next lecture create a new user and save in the database.
+
+109
+00:08:37,610 --> 00:08:41,570
+That means we will be walking in the control in the next lecture.

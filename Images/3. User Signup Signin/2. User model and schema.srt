@@ -1,0 +1,423 @@
+1
+00:00:00,270 --> 00:00:07,530
+Before doing anything further I would like to bury the authentication system so that we can start registering
+
+2
+00:00:07,530 --> 00:00:12,060
+the user log them in so that they can create a new blogs and so on.
+
+3
+00:00:12,060 --> 00:00:12,450
+Right.
+
+4
+00:00:12,510 --> 00:00:14,610
+So let's work on the authentication.
+
+5
+00:00:14,610 --> 00:00:22,770
+The first thing we want to do is we want to create a user model and the User model will have a schema
+
+6
+00:00:22,860 --> 00:00:28,620
+that will tell what sort of fields will be there to create new user.
+
+7
+00:00:28,620 --> 00:00:37,190
+For example we might need to use a name name email the data type and is it required or not.
+
+8
+00:00:37,290 --> 00:00:38,110
+Things like that.
+
+9
+00:00:38,130 --> 00:00:40,820
+So let's go ahead and create a user model.
+
+10
+00:00:41,310 --> 00:00:46,630
+So here it's called a new folder let's call it models.
+
+11
+00:00:46,630 --> 00:00:51,760
+We're going to create user model user.
+
+12
+00:00:52,110 --> 00:00:59,460
+Let's start by bringing Mongoose because we're going to create a mongoose schema to contest Mongoose
+
+13
+00:00:59,490 --> 00:01:06,060
+equals to acquire goods.
+
+14
+00:01:06,330 --> 00:01:15,360
+We also need to bring crypto which is a code just module and we're going to use it to has the password
+
+15
+00:01:15,360 --> 00:01:15,840
+later.
+
+16
+00:01:16,170 --> 00:01:24,900
+So let's bring in crypto equals to require crypto.
+
+17
+00:01:25,280 --> 00:01:36,450
+Now let's go ahead create a you just chemical content user schema equals two new mongers dot schema
+
+18
+00:01:36,600 --> 00:01:38,430
+with capital S..
+
+19
+00:01:38,700 --> 00:01:39,710
+So this is a frontier.
+
+20
+00:01:39,730 --> 00:01:43,110
+And this takes the object as an argument.
+
+21
+00:01:43,110 --> 00:01:46,880
+So here you can write all the properties for example the user name.
+
+22
+00:01:47,970 --> 00:01:49,320
+When you create a user.
+
+23
+00:01:49,320 --> 00:01:52,900
+We're going to have a user named property right.
+
+24
+00:01:53,520 --> 00:01:56,130
+And we can specify the type.
+
+25
+00:01:56,250 --> 00:02:07,260
+So it's going to be a string type trim to any whitespace will be trimmed out required to.
+
+26
+00:02:07,320 --> 00:02:09,550
+So it is required if.
+
+27
+00:02:09,690 --> 00:02:14,880
+If we don't provide the user name then Mongols will give us an error.
+
+28
+00:02:14,880 --> 00:02:16,120
+Max.
+
+29
+00:02:16,500 --> 00:02:27,150
+Max length let's say 32 is the maximum length unique true because user names should be unique later
+
+30
+00:02:27,150 --> 00:02:36,090
+on we will implement the user profile system and by default we will give all the users the user name
+
+31
+00:02:36,270 --> 00:02:41,250
+for example domain dot com SLAs profiles SLAs user name.
+
+32
+00:02:41,610 --> 00:02:47,030
+So unless they update the user name we will give them some random string as the user name.
+
+33
+00:02:47,490 --> 00:02:56,790
+So you need to index to the index to what it will do is we will be making a lot of database queries
+
+34
+00:02:57,120 --> 00:02:58,230
+based on the user name.
+
+35
+00:02:58,440 --> 00:03:01,000
+So that's why we want to make it index symbol.
+
+36
+00:03:01,080 --> 00:03:07,340
+So index to lowercase to it.
+
+37
+00:03:07,600 --> 00:03:09,550
+So that's it for user name.
+
+38
+00:03:09,730 --> 00:03:10,500
+Let's copy.
+
+39
+00:03:10,540 --> 00:03:11,890
+Just to make things easier.
+
+40
+00:03:11,890 --> 00:03:13,900
+Comma paste here.
+
+41
+00:03:14,140 --> 00:03:24,430
+And this time let's make it name to name type will we string dream true are required to and max length
+
+42
+00:03:24,940 --> 00:03:25,480
+32
+
+43
+00:03:29,540 --> 00:03:34,440
+you can make name required but we're going to use validator anyway.
+
+44
+00:03:34,450 --> 00:03:37,250
+So let's leave it as it is.
+
+45
+00:03:37,670 --> 00:03:47,980
+Let's copy and paste here and let's use this for email but the type scheme to be string trimmed true
+
+46
+00:03:48,620 --> 00:03:51,190
+required true unique.
+
+47
+00:03:51,610 --> 00:03:53,590
+Make sure email is unique
+
+48
+00:03:56,580 --> 00:04:04,670
+maximum length 30 to maybe 12 a specified that say no.
+
+49
+00:04:04,680 --> 00:04:10,210
+Case to profile.
+
+50
+00:04:12,210 --> 00:04:14,690
+So the type is going to be stream
+
+51
+00:04:17,320 --> 00:04:25,380
+required to be true profile as well as the password.
+
+52
+00:04:25,380 --> 00:04:28,100
+We're not going to save the plain password in the database.
+
+53
+00:04:28,110 --> 00:04:31,130
+We're going to save the hashed version of it.
+
+54
+00:04:31,200 --> 00:04:43,530
+So we're going to use first password and the type is going to be strength and required truth.
+
+55
+00:04:43,710 --> 00:04:50,940
+And if you have worked with some other Vegas like big crypt you must have used just password not hashed
+
+56
+00:04:50,940 --> 00:04:58,770
+password but we're going to use crypto in this project and I recommend you to exactly follow along the
+
+57
+00:04:58,770 --> 00:05:02,800
+way we're doing it because it will be much easier later on again.
+
+58
+00:05:02,850 --> 00:05:07,400
+So do not sense the filth just continue with this one when you finish the project.
+
+59
+00:05:07,410 --> 00:05:10,550
+Obviously you are free to make any modification.
+
+60
+00:05:10,620 --> 00:05:17,880
+All right we're going to use the salt as root salt will be used to define how strong you're going to
+
+61
+00:05:18,180 --> 00:05:19,260
+have the password.
+
+62
+00:05:19,260 --> 00:05:22,290
+Salt will have some numeric value.
+
+63
+00:05:22,290 --> 00:05:24,890
+So we'll be generating salt as well at the moment.
+
+64
+00:05:24,900 --> 00:05:30,510
+We can say the normal type then we want about as well.
+
+65
+00:05:30,890 --> 00:05:37,270
+So our board is going to be type string then we're going to have the roll as well because really we
+
+66
+00:05:37,290 --> 00:05:45,890
+having it all based authentic isn't system type no dream.
+
+67
+00:05:46,210 --> 00:05:49,250
+Two words are going to have.
+
+68
+00:05:49,800 --> 00:05:57,430
+It will be the type of both begin to see a photo in the binary data format in the database and among
+
+69
+00:05:57,430 --> 00:06:04,010
+the is perfect for saving binary data for the will have the content type as well.
+
+70
+00:06:04,670 --> 00:06:07,580
+And that's going to be a script.
+
+71
+00:06:07,950 --> 00:06:13,370
+So it's going to be something like emits less Bindi you miss less Zbig and so on.
+
+72
+00:06:14,220 --> 00:06:21,780
+And finally we're going to also use a reset password link.
+
+73
+00:06:22,020 --> 00:06:29,070
+I guess we'll be using this much later in the course we will be implementing the forward password and
+
+74
+00:06:29,070 --> 00:06:36,090
+reset password functionality so at that time we will generate a token and save in the database and then
+
+75
+00:06:36,090 --> 00:06:40,350
+we will email that token to the user when they click on that link.
+
+76
+00:06:40,430 --> 00:06:46,560
+They'll be redirected to the react application and then from their react app will send the token back
+
+77
+00:06:46,560 --> 00:06:53,340
+to our server and then we're going to check if that token is exactly the one we have in the database
+
+78
+00:06:53,410 --> 00:06:53,790
+again.
+
+79
+00:06:53,930 --> 00:06:59,720
+Now it can be confusing at the moment but onward we will go through that in depth so you'll get complete
+
+80
+00:06:59,750 --> 00:07:00,300
+understanding.
+
+81
+00:07:00,310 --> 00:07:04,710
+But at the moment just a bit here reset password link.
+
+82
+00:07:04,710 --> 00:07:12,140
+This is going to be a double the type of string and then by default it will be empty.
+
+83
+00:07:12,160 --> 00:07:21,270
+This is how you the schema we have username name email profile hast password sold about droll photo
+
+84
+00:07:21,360 --> 00:07:23,310
+and reset password link
+
+85
+00:07:26,330 --> 00:07:32,230
+finally let's also add timestamp timestamp.
+
+86
+00:07:32,230 --> 00:07:33,460
+We're not going to add here.
+
+87
+00:07:33,460 --> 00:07:35,350
+Instead we're going to pass here.
+
+88
+00:07:36,100 --> 00:07:39,340
+So as you can see this is a mongo schema.
+
+89
+00:07:39,370 --> 00:07:40,680
+So this is the first I admit.
+
+90
+00:07:40,690 --> 00:07:42,670
+The entire object.
+
+91
+00:07:44,260 --> 00:07:50,000
+And then the second argument here the timestamp timestamp.
+
+92
+00:07:50,190 --> 00:07:57,730
+And we set truth to this we wouldn't need to create ourself manually it will automatically and created
+
+93
+00:07:57,730 --> 00:08:03,280
+an updated date in the database with all that we done with our schema.
+
+94
+00:08:03,580 --> 00:08:12,810
+So what we can do is we can module or exports equals to Mongols store model.
+
+95
+00:08:13,000 --> 00:08:15,220
+So what are we going to call this model.
+
+96
+00:08:15,220 --> 00:08:17,770
+We're going to call user with capital.
+
+97
+00:08:17,790 --> 00:08:18,870
+You okay.
+
+98
+00:08:18,910 --> 00:08:30,380
+This is convention to indicate that this is a user model and then user schema so this is our Mongo schema
+
+99
+00:08:30,470 --> 00:08:31,680
+for user more.
+
+100
+00:08:31,680 --> 00:08:38,990
+Now we can use this user model to create a new user and save saving the database but there is a bit
+
+101
+00:08:38,990 --> 00:08:46,730
+more to do here because we will be getting the plain password and we need to save as has password just
+
+102
+00:08:46,730 --> 00:08:57,010
+realized that it shouldn't be just Max no length this max and it should be all law guess it sort of
+
+103
+00:08:57,020 --> 00:08:59,460
+made that teens let's make it Max
+
+104
+00:09:02,210 --> 00:09:03,260
+all lowercase
+
+105
+00:09:07,200 --> 00:09:08,170
+and that is it.
+
+106
+00:09:08,610 --> 00:09:12,530
+So we're going to do some more here in the following lecture.
