@@ -268,7 +268,7 @@ body{
     border-radius: 50%;
     padding: 3rem;
     z-index: 20;
-    margin-top: 9em;
+    margin-top: 5em;
     pointer-events: none;
     
   }
@@ -368,7 +368,7 @@ body{
     object-fit: cover;
     border-radius: 50%;
     padding: 3rem;
-    margin-top: 9em;
+    margin-top: 5em;
     z-index: 30;
     pointer-events: none;
     
