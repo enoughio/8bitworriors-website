@@ -1,0 +1,156 @@
+*{
+    /* background-color: black; */
+    /* cursor: none; */
+    overflow: hidden;
+    font-family: 'Gilroy';
+}
+.cursor {
+    height: 2%;
+    width: 1%;
+    background-color: #04F96E;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 19;
+    mix-blend-mode: difference;
+    transition: all linear 0.1s;
+    overflow: hidden;
+}
+.cursor-blur {
+    height: 40%;
+    width:40%;
+    background-color: rgba(28, 191, 33, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    filter: blur(80px);
+    z-index: 9;
+    transition: all linear 0.4s;
+}
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+ }
+h1{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    margin-top: 3%;
+}
+.container{
+    background-color: rgba(128, 128, 128, 0.374);
+    width: 47em;
+    height: 25em;
+    margin: 0 auto;
+    margin-top: 5em;
+    border-radius: 30px;
+    border: 3px solid rgba(28, 191, 33, 0.3);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.form-control{
+    background: transparent;
+    border: none;
+    padding: 1em;
+    z-index: 10;
+}
+form .submit {
+    width: 80%;
+    background: #141414;
+    border-color: transparent;
+    color: #fff;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 33px;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+input::placeholder{
+    color: white;
+    font-size: 15px;
+}
+textarea::placeholder{
+    color: white;
+    font-size: 15px;
+}
+textarea{
+   resize: none;
+}
+input, select, textarea{
+    color: #ffffff;
+}
+
+textarea:focus, input:focus {
+    color: #ffffff;
+}
+.links{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+}
+.links i{
+    color: #fff;
+    font-size: 25px;
+    border: 2px solid white;
+    padding: 8px;
+    border-radius: 50%;
+    
+}
+.links i:hover{
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px #04F96E;
+    scale: 1.2;
+}
+form .submit:hover{
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 15px #04F96E;
+}
+.text{
+    display: inline-block;
+    width: 290px;
+}
+h4{
+    color: white;
+    font-size: 1.3em;
+    font-family: "Share Tech Mono", serif;
+    font-weight: 400;
+    font-style: normal;
+    border-right: 3px solid;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: 
+        typing 6s steps(35) infinite alternate,
+        cursor .4s step-end infinite alternate;
+}
+@keyframes cursor {
+    50%{border-color: transparent;}
+}
+@keyframes typing {
+    from{width: 0;}
+} 
+input:focus{
+    color: #04F96E;
+    border: 2px solid #04F96E;
+    outline: none;
+    border-radius: 25px;
+}
+textarea:focus{
+    color: #04F96E;
+    border: 2px solid #04F96E;
+    outline: none;
+    border-radius: 25px;
+}
+i{
+    cursor: pointer;
+}

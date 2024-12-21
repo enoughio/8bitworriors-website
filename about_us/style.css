@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+body{
+    cursor: none;
+}
+.container {
+    width: 100%;
+    position: relative;
+    top: 5%;
+}
+
+.container .article{
+    width: 80%;
+    display: block;
+    margin: 0px auto;
+    padding-top: 50px 0px;
+}
+
+.container .title {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.offers {
+    padding: 5%;
+    text-align: center;
+}
+
+h3 {
+    padding-top: 5%;
+    padding-left: 20%;
+    padding-bottom: 5%;
+    font-weight: 100;
+    font-size: 32px;
+    font-style: oblique;
+}
+.cursor {
+    height: 2%;
+    width: 1%;
+    background-color: #04F96E;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 19;
+    mix-blend-mode: color-dodge;
+    transition: all linear 0.1s;
+}
+.cursor-blur {
+    height: 360px;
+    width:360px;
+    background-color: rgba(28, 191, 33, 0.3);
+    border-radius: 65%;
+    position: absolute;
+    filter: blur(80px);
+    z-index: 9;
+    transition: all linear 0.4s;
+}
+h1 {
+    color: rgb(0, 255, 0);
+    font-weight: 100;
+    font-size: 64px;
+}
+h2{
+    color: rgb(0, 255, 0);
+    font-weight: 100;
+    font-size: 64px;
+}
+.content {
+    color: white;
+    font-size: large;
+}
+p{
+    color: #e8ebf1;
+    letter-spacing: 1px;
+    line-height: 1.8;
+    word-spacing: 1px;
+
+}
+#bit1 {
+    padding: 60px;
+    background: linear-gradient(135deg, rgba(5, 14, 5, 0.327), rgba(62, 149, 4, 0.2)); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border-radius: 15px; /* Rounded corners */
+    border: 3px solid rgba(20, 239, 16, 0.219); /* Light border */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    line-height: 1.8;
+    word-spacing: 2px;
+    
+    
+
+    /* Animation properties */
+    opacity: 1; /* Start invisible */
+    transform: translateY(-50px); /* Start position above */
+    animation: slideIn 0.5s forwards; /* Apply animation */
+}
+
+@keyframes slideInBounce {
+    0% {
+        opacity: 1; /* Start invisible */
+        transform: translateY(-50px) scale(0.95); /* Start from above and slightly smaller */
+    }
+    60% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(10px) scale(1.02); /* Move down slightly and scale up for bounce effect */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0) scale(1); /* End at original position and scale */
+    }
+}
+.offercontent {
+    padding: 60px;
+    background: linear-gradient(135deg, rgba(10, 24, 10, 0.327), rgba(62, 149, 4, 0.2)); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border-radius: 15px; /* Rounded corners */
+    border: 1px solid rgba(20, 239, 16, 0.219); /* Light border */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+ul{
+    list-style-type: none;
+}
+
