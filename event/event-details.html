@@ -3,14 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Details</title>
+    <title>Event Details - TechEvents Hub</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Event Details</h1>
+        <nav>
+            <div class="logo">TechEvents Hub</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="rsvp-management.html">Manage RSVPs</a></li>
+            </ul>
+        </nav>
     </header>
-    <main id="event-details"></main>
-    <script src="script.js"></script>
+
+    <main>
+        <div class="event-details" id="event-details"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 TechEvents Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Sample event data (in a real application, this would come from a backend)
+        const events = [
+            { id: 1, title: "AI Conference 2023", date: "2023-09-15", description: "Explore the latest in artificial intelligence", upcoming: true, capacity: 100, rsvpCount: 0 },
+            { id: 2, title: "Web Dev Workshop", date: "2023-08-20", description: "Hands-on workshop for modern web development", upcoming: true, capacity: 50, rsvpCount: 0 },
+            { id: 3, title: "Cybersecurity Summit", date: "2023-07-10", description: "Learn about the latest in cybersecurity", upcoming: false, capacity: 200, rsvpCount: 180 },
+            { id: 4, title: "Data Science Expo", date: "2023-06-05", description: "Showcase of data science projects and innovations", upcoming: false, capacity: 150, rsvpCount: 145 },
+        ];
+
+        function getEventDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventId = parseInt(urlParams.get('id'));
+            const event = events.find(e => e.id === eventId);
+
+            if (event) {
+                const detailsContainer = document.getElementById('event-details');
+                detailsContainer.innerHTML = `
+                    <h2>${event.title}</h2>
+                    <p>Date: ${event.date}</p>
+                    <p>${event.description}</p>
+                    <p>Capacity: ${event.capacity}</p>
+                    <p>RSVPs: ${event.rsvpCount}</p>
+                    ${event.upcoming ? `
+                        <button id="rsvp-button" class="rsvp-button">RSVP</button>
+                        <p id="rsvp-message"></p>
+                    ` : ''}
+                `;
+
+                if (event.upcoming) {
+                    const rsvpButton = document.getElementById('rsvp-button');
+                    const rsvpMessage = document.getElementById('rsvp-message');
+
+                    rsvpButton.addEventListener('click', () => {
+                        if (event.rsvpCount < event.capacity) {
+                            event.rsvpCount++;
+                            rsvpMessage.textContent = 'Thank you for your RSVP!';
+                            rsvpMessage.style.color = 'var(--primary-color)';
+                            updateRSVPCount(event);
+                        } else {
+                            rsvpMessage.textContent = 'Sorry, this event is at full capacity.';
+                            rsvpMessage.style.color = 'red';
+                        }
+                        rsvpButton.disabled = true;
+                    });
+                }
+            } else {
+                document.getElementById('event-details').innerHTML = '<p>Event not found.</p>';
+            }
+        }
+
+        function updateRSVPCount(event) {
+            // In a real application, this would send an update to the backend
+            console.log(`Updated RSVP count for event ${event.id}: ${event.rsvpCount}`);
+        }
+
+        window.addEventListener('load', getEventDetails);
+    </script>
 </body>
 </html>
+

@@ -3,23 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
+    <title>TechEvents Hub</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Tech Events</h1>
         <nav>
-            <a href="dashboard.html">Add Event</a>
+            <div class="logo">TechEvents Hub</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="rsvp-management.html">Manage RSVPs</a></li>
+            </ul>
         </nav>
     </header>
+
     <main>
-        <h2>Upcoming Events</h2>
-        <div class="event-container" id="upcoming-events"></div>
-        
-        <h2>Past Events</h2>
-        <div class="event-container" id="past-events"></div>
+        <section id="upcoming-events">
+            <h2>Upcoming Events</h2>
+            <div class="event-grid" id="upcoming-events-grid"></div>
+        </section>
+
+        <section id="past-events">
+            <h2>Past Events</h2>
+            <div class="event-grid" id="past-events-grid"></div>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2023 TechEvents Hub. All rights reserved.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
+
