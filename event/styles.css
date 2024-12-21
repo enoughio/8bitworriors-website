@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1a1a1a; /* Darker header */
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    color: #4CAF50; /* Green link color */
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+h1, h2 {
+    color: #4CAF50; /* Green headings */
+}
+
+.event-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.event-card {
+    background-color: #1a1a1a; /* Card background */
+    border: 1px solid #4CAF50; /* Green border */
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition */
+}
+
+.event-card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+button {
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #4CAF50; /* Green border for inputs */
+    border-radius: 5px;
+    background-color: #1a1a1a; /* Dark input background */
+    color: #e0e0e0; /* Light text color */
+}
+
+input::placeholder {
+    color: #888; /* Placeholder text color */
+}
+
+input:focus {
+    outline: none; /* Remove outline */
+    border-color: #76ff03; /* Lighter green on focus */
+}
+
+#event-details {
+    padding: 20px;
+    background-color: #1a1a1a; /* Dark background for details */
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+#event-details h2 {
+    color: #4CAF50; /* Green heading for details */
+}
+
+#event-details p {
+    margin: 10px 0;
+}
