@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- <div class="cursor"></div>
+    <div class="cursor-blur"></div> -->
+    <video id="background-video" autoplay loop muted poster="backdrop.mp4">
+        <source src="backdrop.mp4" type="video/mp4">
+    </video>
+    <h1>Contact Us</h1>
+    <div class="container">
+        <div class="content">
+            <div class="logo">
+                <img src="logo.png" alt="" width="300px">
+                <br>
+                <div class="text">
+                <h4>Unleash Your Tech Odyssey!</h4></div>
+            </div>
+            <div class="links">
+                <i class="ri-linkedin-fill"><a href="https://www.linkedin.com/company/8bit-warriors/"></a></i>
+                <i class="ri-instagram-line"><a href="https://www.instagram.com/8bit_warriors?igsh=MWp1eHphNHI5bTJueQ=="></a></i>
+                <i class="ri-twitter-x-line"><a href="https://x.com/8bit_warriors"></a></i>
+            </div>
+        </div>
+        <div class="contact-form">
+            <form id="contact-form" method="post">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                <br>
+                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                <br>
+                <input type="text" name="ph-number" class="form-control" placeholder="Your Phone Number">
+                <br>
+                <textarea name="message" class="form-control" placeholder="Message" rows="4" cols="30" required></textarea>
+                <br>
+                <input type="submit" class="submit" value="Send Message">
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    var crsr = document.querySelector(".cursor");
+    var blurs = document.querySelector(".cursor-blur");
+
+    document.addEventListener("mousemove", function (dets) {
+    crsr.style.left = dets.x + "px";
+    crsr.style.top = dets.y + "px";
+    blurs.style.left = dets.x - 150 + "px";
+    blurs.style.top = dets.y - 150 + "px";
+});
+</script>
+</html>

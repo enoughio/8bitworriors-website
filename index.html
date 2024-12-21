@@ -10,6 +10,232 @@
     <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script defer src="index.js"></script>
+    <style>
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 3em;
+        margin-bottom: 40px;
+        color: white;
+        font-weight: bold;
+        margin-top: 40px;
+    }
+
+    .slider-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 600px;
+        margin-top: 40px;
+    }
+
+    .slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+        min-width: 100%;
+        padding: 20px;
+    }
+
+    .event-card {
+        background: black;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        padding: 20px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: transform 0.3s ease;
+        position: relative;
+    }
+
+    .event-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .event-image-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .event-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .register-btn {
+        background: white;
+        color: black;
+        border: none;
+        padding: 8px 8px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 120px;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        font-size: 18px;
+    }
+
+    .register-btn:hover {
+        background: black;
+        color: white;
+    }
+
+    .slider-btn {
+        position: absolute;
+        top: 46.5%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.5);
+        color: white;
+        padding: 15px;
+        border: none;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+    }
+
+    .prev {
+        left: 60px;
+    }
+
+    .next {
+        right: 60px;
+    }
+
+    @media (max-width: 768px) {
+        .event-card {
+            height: 350px;
+        }
+        
+        .slider-container {
+            height: 400px;
+        }
+        
+        .title {
+            font-size: 2rem;
+        }
+
+        .slider-btn {
+            padding: 10px;
+        }
+    }
+
+    .team-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: black;
+    }
+
+    .team-heading {
+        color: white;
+        margin-top: -60px;
+        font-size: 2.5em;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .team-row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+        gap: 20px;
+    }
+
+    .team-member {
+        position: relative;
+        width: 200px;
+        text-align: center;
+        flex: 0 0 calc(20% - 20px); 
+        margin-top: 1.5em;
+    }
+
+    @media (max-width: 1200px) {
+        .team-member {
+            flex: 0 0 calc(25% - 20px);
+        }
+    }
+
+    @media (max-width: 992px) {
+        .team-member {
+            flex: 0 0 calc(33.333% - 20px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .team-member {
+            flex: 0 0 calc(50% - 20px);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .team-member {
+            flex: 0 0 100%;
+        }
+    }
+
+    .member-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+    }
+
+    .social-icons {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .social-icons a {
+        color: #fff;
+        font-size: 24px;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+
+    .team-member:hover .member-image {
+        opacity: 0.7;
+    }
+
+    .team-member:hover .social-icons {
+        opacity: 1;
+    }
+
+    .member-name {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    .member-designation {
+        margin: 0;
+        color: white;
+        font-size: 0.9em;
+    }
+    </style>
     
 </head>
 <body>
@@ -20,7 +246,7 @@
             <div class="navbar">
                 <div class="navleft">
                     <div class="border1">
-                        <img src="./Images/8bitwarriors-removebg-preview.png" alt="8 Bit Warriors Logo">
+                        <img src="./Images/8bit.png" alt="8 Bit Warriors Logo">
                     </div>
                 </div>
                 <div class="navwrap">
@@ -28,11 +254,11 @@
                     <div class="navright">
                         <div class="border2">
                             <div class="inner-div">
-                                <a href="https://www.youtube.com/">Home</a>
+                                <a href="#">Home</a>
                                 <a href="#">Events</a>
                                 <a href="#">Resources</a>
-                                <a href="#">About</a>
-                                <a href="#">Contact</a>
+                                <a href="/about_us/index.html">About</a>
+                                <a href="/contact_page/Contact.html">Contact</a>
                             </div>
                             <div class="movinglight"></div>
                         </div>
@@ -40,70 +266,59 @@
                 </div>
             </div>
         </div>
-        <div class="cards-container">
-            <div class="card" id="card1">
-                <div class="overlay">
-                    <h4>MISSION</h4>
-                    <p>
-                        To empower students by fostering innovation, technical excellence, and collaborative learning through hands-on experiences, mentorship, and community-driven initiatives. We strive to create an environment where tech enthusiasts can develop practical skills, solve real-world problems, and cultivate a passion for lifelong learning and technological advancement.
-                    </p>
+        <div class="card-container">
+            <div class="card">
+                <img src="/Images/mission.jpeg" alt="Card 1 Image" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">MISSION</h3>
+                    <p class="card-text"> We strive to create an environment where tech enthusiasts can develop practical skills, solve real-world problems, and cultivate a passion for lifelong learning and technological advancement.</p>
                 </div>
             </div>
-            <div class="card" id="card2">
-                <div class="overlay">
-                    <h4>VISION</h4>
-                    <p>
-                        To become a leading hub of innovation and technical expertise where aspiring engineers, programmers, and tech enthusiasts are inspired to explore, innovate, and contribute to technological advancements, enabling them to thrive in a competitive and ever-evolving global landscape.
-                    </p>
+            
+            <div class="card">
+                <img src="/Images/vision2.jpg" alt="Card 2 Image" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">VISION</h3>
+                    <p class="card-text">To become a leading hub of innovation and technical expertise where aspiring engineers, programmers, and tech enthusiasts are inspired to explore, innovate, and contribute to technological advancements.</p>
+                </div>
+            </div>
+        
+        </div>
+        
+        
+        <div class="cardContainer" style="display: flex; flex-direction: column; align-items: center; margin: 50px auto; max-width: 1200px;margin-top: -5em;">
+            <h3 style="text-align: center; color: white; margin-bottom: 40px;">Our Mentor's Word</h3>
+            <div style="display: flex; flex-direction: row; justify-content: space-around; flex-wrap: nowrap; overflow-x: auto; width: 100%;">
+                <div class="card2" style="border: 2px solid #03F86F; margin: 10px; width: 440px; height: 500px;border-radius: 20px">
+                    <div class="cardContent" style="display: flex; flex-direction: column; align-items: center; background-color: black; color: white; height: 100%; border-radius: 20px;">
+                        <img src="/Images/narola sir 1.jpg" alt="Team Member 1" class="cardImage teamImage">
+                        <h3 class="cardTitle" style="width: 100%; text-align: center; color: white; white-space: nowrap;">Mukesh Narola</h3>
+                        <h4 class="designation" style="width: 80%; text-align: center;">Assistant Director of T&P Cell </h4>
+                        <p class="cardText" style="width: 70%; text-align: justify; color: white;">"Innovation distinguishes between a leader and a follower. I believe in pushing boundaries and inspiring others to do the same."</p>
+                    </div>
+                </div>
+            
+                <div class="card2" style="border: 2px solid #03F86F; margin: 10px; width: 440px; height: 500px;border-radius: 20px">
+                    <div class="cardContent" style="display: flex; flex-direction: column; align-items: center; background-color: black; color: white; height: 100%; border-radius: 20px">
+                        <img src="/Images/2.jpeg" alt="Team Member 2" class="cardImage teamImage">
+                        <h3 class="cardTitle" style="width: 100%; text-align: center; color: white;">Jane Smith</h3>
+                        <h4 class="designation" style="width: 80%; text-align: center;">Senior Developer</h4>
+                        <p class="cardText" style="width: 70%; text-align: justify; color: white;">"The best way to predict the future is to create it. Every line of code we write shapes tomorrow's possibilities."</p>
+                    </div>
+                </div>
+            
+                <div class="card2" style="border: 2px solid #03F86F; margin: 10px; width: 440px; height: 500px;border-radius: 20px">
+                    <div class="cardContent" style="display: flex; flex-direction: column; align-items: center; background-color: black; color: white; height: 100%; border-radius: 20px">
+                        <img src="/Images/founder.png" alt="Team Member 3" class="cardImage teamImage">
+                        <h3 class="cardTitle" style="width: 100%; text-align: center; color: white;">Harsh Gautam</h3>
+                        <h4 class="designation" style="width: 80%; text-align: center;">Founder</h4>
+                        <p class="cardText" style="width: 70%; text-align: justify; color: white;">"Design is not just what it looks like and feels like. Design is how it works. I strive to create experiences that delight users."</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="page2" id="page">
-            
-          <div class="page2-left">
-           <img src="/images/1.jpeg" alt="Image found">
-            <span>Name</span>
-            
-          </div>
-          <div class="page2-right">
-            <span>Director's Message</span>
-            <p>
-             
-            Our club stands as a beacon of innovation, collaboration, and learning in the ever-evolving landscape of technology. At 8 bit Warriors, we believe in harnessing the power of technology to inspire, educate, and empower individuals to shape a better tomorrow. Whether you are a seasoned professional, an aspiring enthusiast, or simply curious about the latest trends in tech, our club offers a vibrant platform for exploration and growth. Our mission is simple yet profound: to cultivate a dynamic community where ideas flourish, skills are honed, and connections are forged. Through a diverse range of events, workshops, and projects, we aim to foster creativity, critical thinking, and camaraderie among our members. As we embark on this exciting journey together, I encourage each and every one of you to actively participate, contribute your unique insights, and seize every opportunity to expand your horizons. Together, let's push the boundaries of what's possible and pave the way for a future driven by innovation and excellence.
-            </p>
-          </div>
-        </div>
-        <div class="page3" id="page">
-            
-            <div class="page3-left">
-                <span>Founder</span>
-                <p>
-                    As the Founder, I'm thrilled to witness the boundless creativity and passion for technology within our community. In this ever-evolving digital landscape, our tech club serves as your playground for exploration, collaboration, and growth. From coding marathons to futuristic workshops, there's something here for every curious mind and inventive spirit. But beyond the ones and zeros, our club is a vibrant tapestry of personalities, united by a shared love for all things tech. Together, we'll break barriers, forge friendships, and pave the way for a brighter, more connected future.
-                </p>
-              
-            </div>
-            <div class="page3-right">
-                <img src="/images/2.jpeg" alt="Image found">
-              <span>Harsh Gautam</span>
-              
-            </div>
-          </div>
-          <div class="page4" id="page">
-            
-            <div class="page4-left">
-             <img src="/images/8.jpeg" alt="Image found">
-              <span>Name</span>
-              
-            </div>
-            <div class="page4-right">
-              <span>Director's Message</span>
-              <p>
-               
-                It is my privilege to foster an environment where curiosity thrives, knowledge is shared, and connections are made. We're all about exploring cool tech stuff together. Whether you're a pro or just starting out, there's something here for you. We've got workshops, talks, and events that cover everything from coding to gadgets. From hands-on workshops to engaging discussions, we offer a diverse array of events tailored to suit every interest and skill level. My goal is to ensure that every member feels supported, valued, and inspired to explore the endless possibilities that technology has to offer. Together, let's harness the power of collaboration and innovation to push the boundaries of what's possible and shape the future of technology. I invite you to dive in, get involved, and embark on this exciting journey with us.
-              </p>
-            </div>
-          </div>
-          <section class="creative-photography--slider theme1">
+    
+        <section class="creative-photography--slider theme1">
             <div class="swiper-container photography-swiper--slider">
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
@@ -115,7 +330,7 @@
                             </div>
                             <div class="photography-slider--content">
                                 <div class="photography-slider--image">
-                                    <img src="/Images/img main.jpg" alt="img">								
+                                    <img src="/Images/img 1.jpg" alt="img">								
                                     <div class="photography-slider--inner">
                                         <div class="photography-heading">
                                             <div class="photography-item--inner">
@@ -137,7 +352,7 @@
                             </div>
                             <div class="photography-slider--content">
                                 <div class="photography-slider--image">
-                                    <img src="/images/img9.jpg" alt="img">								
+                                    <img src="/images/img2.jpg" alt="img">								
                                     <div class="photography-slider--inner">
                                         <div class="photography-heading">
                                             <div class="photography-item--inner">
@@ -159,7 +374,7 @@
                             </div>
                             <div class="photography-slider--content">
                                 <div class="photography-slider--image">
-                                    <img src="/images/img11.jpg" alt="img">								
+                                    <img src="/images/img3.jpg" alt="img">								
                                     <div class="photography-slider--inner">
                                         <div class="photography-heading">
                                             <div class="photography-item--inner">
@@ -181,7 +396,7 @@
                             </div>
                             <div class="photography-slider--content">
                                 <div class="photography-slider--image">
-                                    <img src="/images/g5.jpg" alt="img">								
+                                    <img src="/images/img4.jpg" alt="img">								
                                     <div class="photography-slider--inner">
                                         <div class="photography-heading">
                                             <div class="photography-item--inner">
@@ -203,7 +418,7 @@
                             </div>
                             <div class="photography-slider--content">
                                 <div class="photography-slider--image">
-                                    <img src="/images/img2.jpg" alt="img">								
+                                    <img src="/images/img5.jpg" alt="img">								
                                     <div class="photography-slider--inner">
                                         <div class="photography-heading">
                                             <div class="photography-item--inner">
@@ -225,7 +440,7 @@
                             </div>
                             <div class="photography-slider--content">
                                 <div class="photography-slider--image">
-                                    <img src="/images/img10.jpg" alt="img">								
+                                    <img src="/images/img 6.jpg" alt="img">								
                                     <div class="photography-slider--inner">
                                         <div class="photography-heading">
                                             <div class="photography-item--inner">
@@ -246,14 +461,387 @@
             </div>
             
         </section>
+        <div class="container">
+            <h1 class="title">EVENTS</h1>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide">
+                        <div class="event-card">
+                            <div class="event-image-container">
+                                <img src="/Images/Events/1 1 1 1.jpg" alt="Tech Workshop" class="event-image">
+                                <button type="button" class="register-btn">Show more</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="event-card">
+                            <div class="event-image-container">
+                                <img src="/Images/Events/2 1 1.jpg" alt="Hackathon" class="event-image">
+                                <button type="button" class="register-btn">Show more</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="event-card">
+                            <div class="event-image-container">
+                                <img src="/Images/Events/3 1 1.jpg" alt="Tech Talk" class="event-image">
+                                <button type="button" class="register-btn">Show more</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="event-card">
+                            <div class="event-image-container">
+                                <img src="/Images/Events/4 1 1.jpg" alt="Tech Workshop" class="event-image">
+                                <button type="button" class="register-btn">Show more</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <button class="slider-btn prev">❮</button>
+                <button class="slider-btn next">❯</button>
+            </div>
+        </div>
+        <div class="team-container">
+            <h1 class="team-heading">Meet Our Team</h1>
+            <div class="team-row">
+                <!-- Row 1 -->
+                <div class="team-member">
+                    <img src="/Images/Team/founder.png" alt="Team Member 1" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Harsh Gautam</h4>
+                    <h5 class="member-designation">Founder</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/president.jpg" alt="Team Member 2" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Aditi Patel</h4>
+                    <h5 class="member-designation">President</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/secretary.jpg" alt="Team Member 3" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Peeyush Shandilya</h4>
+                    <h5 class="member-designation">Secretary</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/SARVAGYA SHARMA.jpg" alt="Team Member 4" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Sarvagya Sharma</h4>
+                    <h5 class="member-designation">videoGrapher</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/savi.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Abhishek Kumar</h4>
+                    <h5 class="member-designation">Treasurer</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/aman.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Aman Kumar Verma</h4>
+                    <h5 class="member-designation">Tech Lead</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/abhi.png" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Abhishek Parihar</h4>
+                    <h5 class="member-designation">Tech Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/aniket.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Aniket Jatav</h4>
+                    <h5 class="member-designation">Tech Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/vaidehi.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Vaidehi Verma</h4>
+                    <h5 class="member-designation">Tech Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/Soumya.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Soumya Singh</h4>
+                    <h5 class="member-designation">Tech Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/MUSKAN VISHWAKARMA.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Muskan Vishwakarma</h4>
+                    <h5 class="member-designation">Social Media Lead</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/RONAK GUPTA.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Ronak Gupta</h4>
+                    <h5 class="member-designation">Social Media Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/REVAT SINGH PAWAR.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Revat Singh Pawar</h4>
+                    <h5 class="member-designation">Event Management Lead</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/SARANSH TIWARI.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Saransh Tiwari</h4>
+                    <h5 class="member-designation">Event Management Team</h5>
+                </div>
 
-        <!-- </div> -->
+                <div class="team-member">
+                    <img src="/Images/Team/krish.png" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Dharmesh Krish Mithaulia</h4>
+                    <h5 class="member-designation">Event Management Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/RISHI VASHISTHA.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Rishi Vashistha</h4>
+                    <h5 class="member-designation">Creative Head</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/RAJVEER SINGH PARMAR.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Rajveer Singh Parmar</h4>
+                    <h5 class="member-designation">Creative Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/Ayushman.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Ayushman Gupta</h4>
+                    <h5 class="member-designation">Creative Team</h5>
+                </div>
+
+                <div class="team-member">
+                    <img src="/Images/Team/rudransh.png" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Rudransh Soni</h4>
+                    <h5 class="member-designation">Creative Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="Images/Team/KRITIKA MITTAL.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Kritika Mittal</h4>
+                    <h5 class="member-designation">Content Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/radhika.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Radhika Thakur</h4>
+                    <h5 class="member-designation">Content Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/ADITYA RAI.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Aditya Rai</h4>
+                    <h5 class="member-designation">Marketing Lead</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/DIVYANSHU SINGH CHOUHAN.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Divyanshu Singh Chouhan</h4>
+                    <h5 class="member-designation">Marketing Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/MANSHVI JAISWAL.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Manshvi Jaiswal</h4>
+                    <h5 class="member-designation">Marketing Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/ABHISHEK GOSWAMI.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Abhishek Goswami</h4>
+                    <h5 class="member-designation">Graphic Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/CHARU JAIN.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Charu Jain</h4>
+                    <h5 class="member-designation">Graphic Team</h5>
+                </div>
+    
+                <div class="team-member">
+                    <img src="/Images/Team/KANCHAN KUSHWAHA.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Kanchan Kushwaha</h4>
+                    <h5 class="member-designation">Research and Development</h5>
+                </div>
+
+                <div class="team-member">
+                    <img src="/Images/Team/TWINKLE KASERA.jpg" alt="Team Member 5" class="member-image">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4 class="member-name">Twinkle Kasera</h4>
+                    <h5 class="member-designation">Research and Development</h5>
+                </div>
+                
+            </div>
+        </div>
+        
+        
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="index.js">
         
+    </script>
+     <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        
+        let currentSlide = 0;
+        const slideCount = slides.length;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function goToPrevSlide() {
+            currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+            updateSlider();
+        }
+
+        function goToNextSlide() {
+            currentSlide = (currentSlide + 1) % slideCount;
+            updateSlider();
+        }
+
+        prevBtn.addEventListener('click', goToPrevSlide);
+        nextBtn.addEventListener('click', goToNextSlide);
+
+        // Add touch support for mobile devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        slider.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        slider.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                // Swipe left
+                goToNextSlide();
+            } else if (touchEndX - touchStartX > 50) {
+                // Swipe right
+                goToPrevSlide();
+            }
+        });
     </script>
 </body>
 </html>
